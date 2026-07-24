@@ -103,6 +103,16 @@ header nav .nav-sections > .default-content-wrapper > ul > li > ul > li a { colo
     background-size: auto 130%;
   }
 
+  /* invisible bridge across the 10px gap so the panel survives the cursor's travel */
+  header nav .nav-sections > .default-content-wrapper > ul > li > ul::before {
+    content: '';
+    position: absolute;
+    top: -14px;
+    left: 0;
+    right: 0;
+    height: 14px;
+  }
+
   header nav .nav-sections > .default-content-wrapper > ul > li[aria-expanded='true'] > ul { display: block; }
   header nav .nav-sections > .default-content-wrapper > ul > li > ul > li { padding: 6px 0; font-weight: 700; font-size: var(--body-font-size-m); }
   header nav .nav-sections > .default-content-wrapper > ul > li > ul > li a:hover { color: var(--color-indigo); }
