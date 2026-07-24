@@ -30,3 +30,14 @@ indices:
       lastModified:
         select: none
         value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+  sitemap-pages:
+    include:
+      - '/**'
+    exclude:
+      - '/nav'
+      - '/footer'
+    target: /sitemap-pages.json
+    properties:
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")

@@ -1,0 +1,6 @@
+version: 1
+sitemaps:
+  default:
+    origin: https://main--digitalsummit-eds--paolomoz.aem.live
+    source: /sitemap-pages.json
+    destination: /sitemap.xml
