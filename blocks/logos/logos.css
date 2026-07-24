@@ -1,0 +1,11 @@
+.logos .logo-wall { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 32px; }
+.logos .logo-tile { border: 1px solid var(--color-mist); border-radius: var(--radius-chip); background: #fff; display: flex; align-items: center; justify-content: center; height: 92px; padding: 16px; transition: border-color 0.2s ease; }
+.logos .logo-tile:hover { border-color: var(--color-accent); }
+.logos .logo-tile img { width: 100%; height: 100%; object-fit: contain; }
+.logos .logos-cta { text-align: center; }
+
+/* captured signature ground: left-edge confetti column */
+main .section.logos-container { background: url('/img/brand/confetti-left.png') left center / auto 100% no-repeat; }
+
+@media (width <= 1024px) { .logos .logo-wall { grid-template-columns: repeat(3, 1fr); } }
+@media (width <= 640px) { .logos .logo-wall { grid-template-columns: repeat(2, 1fr); } }

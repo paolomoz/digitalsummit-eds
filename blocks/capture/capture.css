@@ -1,0 +1,8 @@
+.capture .capture-card { position: relative; overflow: hidden; background: var(--color-mist); border-radius: var(--radius); padding: 48px; }
+.capture .capture-card h2, .capture .capture-card h3 { font-size: var(--heading-font-size-m); max-width: 26em; }
+.capture .capture-confetti { position: absolute; top: -14px; right: -10px; width: 72px; height: 72px; }
+.capture .capture-form { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 24px; }
+.capture .capture-form input { font-family: var(--body-font-family); font-size: var(--body-font-size-m); color: var(--color-fg); background: #fff; border: 1px solid rgb(0 0 0 / 40%); border-radius: var(--radius-chip); padding: 11px 14px; flex: 1 1 200px; min-width: 0; }
+.capture .capture-form input::placeholder { color: rgb(0 0 0 / 62%); }
+.capture .capture-form button { flex: 0 0 auto; }
+.capture .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }

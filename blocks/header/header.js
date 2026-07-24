@@ -140,7 +140,22 @@ export default async function decorate(block) {
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
+      // #98: the pipeline wraps the trigger link in a <p> on live — unwrap it
+      const wrapped = navSection.querySelector(':scope > p > a');
+      if (wrapped) {
+        const p = wrapped.closest('p');
+        p.replaceWith(wrapped);
+      }
       if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
+      navSection.addEventListener('mouseenter', () => {
+        if (isDesktop.matches && navSection.classList.contains('nav-drop')) {
+          toggleAllNavSections(navSections);
+          navSection.setAttribute('aria-expanded', 'true');
+        }
+      });
+      navSection.addEventListener('mouseleave', () => {
+        if (isDesktop.matches) navSection.setAttribute('aria-expanded', 'false');
+      });
       navSection.addEventListener('click', () => {
         if (isDesktop.matches) {
           const expanded = navSection.getAttribute('aria-expanded') === 'true';
