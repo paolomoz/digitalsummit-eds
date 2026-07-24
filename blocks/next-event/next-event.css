@@ -25,3 +25,15 @@ main .section.next-event-container > div { max-width: none; }
 @media (width <= 800px) {
   .next-event .ne-cards { grid-template-columns: 1fr; }
 }
+
+/* light variant: city-card grid on white (events listing) */
+main .section.next-event-container:has(.next-event.light) { background: var(--color-bg); }
+.next-event.light { color: var(--color-fg); background: none; padding: 0; }
+.next-event.light .ne-scrim { display: none; }
+.next-event.light .ne-cards { grid-template-columns: repeat(3, 1fr); margin-top: 0; }
+.next-event.light .ne-card { background: #fff; border: 1px solid var(--color-mist); }
+.next-event.light h3 { color: var(--color-fg); }
+.next-event.light .contour { display: none; }
+
+@media (width <= 1024px) { .next-event.light .ne-cards { grid-template-columns: 1fr 1fr; } }
+@media (width <= 640px) { .next-event.light .ne-cards { grid-template-columns: 1fr; } }

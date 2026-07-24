@@ -1,0 +1,32 @@
+# stardust:prepare-migration Phase 4.5 — scoped indexes for dynamic listing blocks
+# Contract documented in stardust/dynamic-blocks-map.md
+version: 1
+indices:
+  event-landings:
+    include:
+      - '/*/home'
+    exclude:
+      - '/home/**'
+    target: /query-index-events.json
+    properties:
+      title:
+        select: head > title
+        value: textContent(el)
+      h1:
+        select: main h1
+        value: textContent(el)
+      image:
+        select: head > meta[property="og:image"]
+        value: attribute(el, "content")
+      eventDate:
+        select: head > meta[name="event-date"]
+        value: attribute(el, "content")
+      eventCity:
+        select: head > meta[name="event-city"]
+        value: attribute(el, "content")
+      registrationUrl:
+        select: head > meta[name="registration-url"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
