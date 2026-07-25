@@ -1,0 +1,114 @@
+.pricing .pricing-table {
+  border: 1px solid var(--color-mist, #e3ebf3);
+  border-radius: var(--radius, 8px);
+  overflow: hidden;
+  margin: var(--spacing-lg, 32px) 0;
+}
+
+.pricing .pricing-row {
+  display: grid;
+  grid-template-columns: 2.2fr repeat(3, 1fr);
+  border-top: 1px solid var(--color-mist, #e3ebf3);
+}
+
+.pricing .pricing-row:first-child {
+  border-top: 0;
+}
+
+.pricing .pricing-row > div {
+  padding: 14px 16px;
+}
+
+.pricing .pricing-head {
+  background: var(--color-indigo, #0e0477);
+  color: #fff;
+}
+
+.pricing .pricing-head .pricing-tier {
+  text-align: center;
+  font-family: var(--heading-font-family, poppins, sans-serif);
+  font-weight: 800;
+  font-size: var(--body, 16px);
+  line-height: 1.3;
+}
+
+.pricing .pricing-head .pricing-tier strong {
+  display: block;
+  font-size: var(--heading-md, 25px);
+  color: var(--color-gold, #efac1f);
+}
+
+.pricing .pricing-head .pricing-tier.popular {
+  background: var(--color-purple, #9d2ca2);
+  position: relative;
+}
+
+.pricing .pricing-head .pricing-tier.popular::before {
+  content: attr(data-popular);
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-pink, #f680c5);
+}
+
+.pricing .pricing-lead {
+  text-align: left;
+}
+
+.pricing .pricing-lead strong {
+  display: block;
+  font-family: var(--heading-font-family, poppins, sans-serif);
+}
+
+.pricing .pricing-lead p {
+  margin: 2px 0 0;
+  font-size: var(--body-sm, 14px);
+  color: rgb(0 0 0 / 65%);
+}
+
+.pricing .pricing-cell {
+  text-align: center;
+  font-size: var(--body-sm, 14px);
+  align-self: center;
+}
+
+.pricing .pricing-cell.popular {
+  background: rgb(157 44 162 / 5%);
+}
+
+.pricing .check {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+}
+
+.pricing .check::after {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 7px;
+  margin: 4px auto 0;
+  border-left: 3px solid var(--color-cyan, #189ac6);
+  border-bottom: 3px solid var(--color-cyan, #189ac6);
+  transform: rotate(-45deg);
+}
+
+.pricing .pricing-cell.excluded::after {
+  content: "—";
+  color: rgb(0 0 0 / 30%);
+}
+
+@media (width <= 700px) {
+  .pricing .pricing-row {
+    grid-template-columns: 1.4fr repeat(3, 1fr);
+  }
+
+  .pricing .pricing-row > div {
+    padding: 10px 8px;
+  }
+
+  .pricing .pricing-head .pricing-tier strong {
+    font-size: var(--heading-sm, 20px);
+  }
+}
