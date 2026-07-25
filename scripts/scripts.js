@@ -74,6 +74,25 @@ function buildWidgetAutoBlocks(main) {
 }
 
 /**
+ * Turns bare embed links (YouTube, Google Maps, HubSpot forms) into embed blocks.
+ * Only a link alone in its paragraph whose text is the URL itself qualifies —
+ * prose links to the same hosts stay links.
+ * @param {Element} main The container element
+ */
+function buildEmbedAutoBlocks(main) {
+  const embeddable = /youtube\.com\/(watch|embed)|youtu\.be\/|google\.com\/maps\/embed|js\.hsforms\.net\//;
+  [...main.querySelectorAll('a[href]')].forEach((link) => {
+    if (link.closest('.embed, .widget')) return;
+    if (!embeddable.test(link.href)) return;
+    const p = link.closest('p');
+    if (!p || p.textContent.trim() !== link.textContent.trim()) return;
+    if (link.textContent.trim() !== link.href) return;
+    const embedBlock = buildBlock('embed', { elems: [link.cloneNode(true)] });
+    p.replaceWith(embedBlock);
+  });
+}
+
+/**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
  */
@@ -97,6 +116,7 @@ function buildAutoBlocks(main) {
       });
     }
     buildWidgetAutoBlocks(main);
+    buildEmbedAutoBlocks(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
