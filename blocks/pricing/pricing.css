@@ -120,3 +120,12 @@
     font-size: var(--heading-sm, 20px);
   }
 }
+
+.pricing .pricing-row.pricing-subhead {
+  grid-template-columns: 1fr;
+  background: var(--color-mist, #e3ebf3);
+}
+
+.pricing .pricing-subhead .pricing-lead strong {
+  font-size: var(--body, 16px);
+}

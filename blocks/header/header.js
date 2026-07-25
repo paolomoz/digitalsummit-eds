@@ -179,8 +179,13 @@ export default async function decorate(block) {
   toggleMenu(nav, navSections, isDesktop.matches);
   isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
 
+  const skip = document.createElement('a');
+  skip.className = 'skip-link';
+  skip.href = '#main';
+  skip.textContent = 'Skip to main content';
+
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
-  block.append(navWrapper);
+  block.append(skip, navWrapper);
 }

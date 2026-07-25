@@ -38,6 +38,13 @@ export default function decorate(block) {
     const lead = document.createElement('div');
     lead.className = 'pricing-lead';
     lead.append(...(cells[0] ? [...cells[0].childNodes] : []));
+    // a row with no tier content is a section label, not a feature
+    if (cells.slice(1).every((c) => !c.textContent.trim())) {
+      tr.className = 'pricing-row pricing-subhead';
+      tr.append(lead);
+      table.append(tr);
+      return;
+    }
     tr.append(lead);
     for (let i = 1; i <= tierCount; i += 1) {
       const el = document.createElement('div');

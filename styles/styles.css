@@ -37,7 +37,7 @@
   --color-mist: #e3ebf3;       /* mist-panel */
 
   /* gradients (signature) */
-  --gradient-fill: linear-gradient(45deg, #189ac6, #9d2ca2);
+  --gradient-fill: linear-gradient(45deg, #127ba3, #9d2ca2); /* start stop darkened from #189ac6 for 4.5:1 white-text AA */
   --gradient-border: linear-gradient(to right, #ec008c, #189ac6);
   --gradient-display: linear-gradient(135deg, #0e0477 33%, #000 66%);
   --duotone: linear-gradient(135deg, rgb(14 4 119 / 86%), rgb(96 3 112 / 72%) 55%, rgb(236 0 140 / 55%));
@@ -118,7 +118,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
 
 /* captured accent-phrase convention: <em> in headings = brand accent, not italic */
 main h1 em, main h2 em, main h3 em { font-style: normal; color: var(--color-magenta); }
-main .section.logos-container h2 em { color: var(--color-accent); }
 
 /* sections */
 main > .section { padding: var(--section-padding) 24px; }

@@ -127,3 +127,24 @@ header nav .nav-sections > .default-content-wrapper > ul > li > ul > li a { colo
 /* tools (Register pill) */
 header nav .nav-tools { grid-area: tools; }
 header nav .nav-tools p { margin: 0; }
+
+/* skip link — visually hidden until keyboard focus */
+header .skip-link {
+  position: absolute;
+  left: 16px;
+  top: -48px;
+  z-index: 10;
+  background: var(--color-indigo, #0e0477);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: var(--radius-chip, 8px);
+  font-family: var(--heading-font-family, poppins, sans-serif);
+  font-weight: 700;
+  font-size: var(--body-font-size-s, 14px);
+  text-decoration: none;
+  transition: top 0.15s ease;
+}
+
+header .skip-link:focus {
+  top: 12px;
+}
