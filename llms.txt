@@ -1,0 +1,39 @@
+# Digital Summit
+
+> Digital Summit is the nation's largest digital marketing conference series,
+> taking place in cities across the U.S. and hosting industry-leading
+> innovators and thinkers. Two-day conferences with keynotes, breakout
+> sessions, workshops, and networking for marketing professionals.
+
+## Events
+
+- [All upcoming events](/home/events): every city and date for the 2026-2027 series
+- [Minneapolis](/minneapolis/home): August 12-13, 2026
+- [Philadelphia](/philadelphia/home): September 23-24, 2026
+- [Atlanta](/atlanta/home): October 6-7, 2026
+- [Raleigh](/raleigh/home): November 2-3, 2026
+- [Dallas](/dallas/home): December 8-9, 2026
+- [Denver](/denver/home): June 15-16, 2026
+- [Chicago](/chicago/home): April 7-8, 2027
+- [Tampa](/tampa/home): March 17-18, 2027
+
+## Attending
+
+- [Why attend](/home/why-attend): content, speakers, networking, convenience
+- [Pricing example (Minneapolis)](/minneapolis/pricing): VIP, Premium, and Conference passes
+- [Get boss approval](/home/get-boss-approval): talking points and letter templates
+- [Bring your team](/home/bring-your-team): group discounts from 3+ people
+- [Conference programming](/home/conference-programming-2026): session categories
+
+## Speakers & Partners
+
+- [Past speakers](/home/past-speakers): lineup history
+- [Apply to speak](/home/apply-speak)
+- [Sponsorship](/home/sponsorship): partner prospectus
+
+## About
+
+- [About Digital Summit](/home/about)
+- [Contact](/home/contact): (919) 529-5373, registration@digitalsummit.com
+- [Code of conduct](/home/code-conduct)
+- [Privacy policy](/home/privacy-policy)
