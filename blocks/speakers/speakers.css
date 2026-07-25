@@ -2,7 +2,7 @@
 .speakers .speaker { display: block; text-decoration: none; }
 .speakers .speaker img { width: 132px; height: 132px; border-radius: 50%; object-fit: cover; margin: 0 auto; border: 3px solid transparent; transition: border-color 0.2s ease; }
 .speakers .speaker:hover img { border-color: var(--color-accent); }
-.speakers .lower-third { display: block; margin: 12px auto 0; width: 190px; min-height: 76px; background: var(--color-fg); border-radius: var(--radius-chip); padding: 8px 12px 9px; }
+.speakers .lower-third { display: block; margin: 12px auto 0; width: 100%; max-width: 190px; min-height: 76px; background: var(--color-fg); border-radius: var(--radius-chip); padding: 8px 12px 9px; }
 .speakers .lower-third::before { content: ""; display: block; width: 34px; height: 3px; background: linear-gradient(to right, #189ac6, #ec008c); margin-bottom: 6px; transform-origin: left; transition: transform 0.25s ease; }
 .speakers .speaker:hover .lower-third::before { transform: scaleX(1.7); }
 .speakers .lt-name { display: block; font-family: var(--heading-font-family); font-weight: 700; font-size: var(--body-font-size-m); color: #fff; line-height: 1.25; }
