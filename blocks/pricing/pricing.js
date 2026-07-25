@@ -51,7 +51,7 @@ export default function decorate(block) {
         el.append(...cells[i].childNodes);
       } else {
         el.classList.add('excluded');
-        el.setAttribute('aria-label', 'Not included');
+        el.innerHTML = '<span aria-hidden="true">—</span><span class="visually-hidden">Not included</span>';
       }
       tr.append(el);
     }

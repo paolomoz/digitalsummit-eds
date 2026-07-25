@@ -46,7 +46,7 @@
 .pricing .pricing-head .pricing-tier.popular::before {
   content: attr(data-popular);
   display: block;
-  font-size: 11px;
+  font-size: var(--body-sm, 14px);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-pink, #f680c5);
@@ -94,9 +94,17 @@
   transform: rotate(-45deg);
 }
 
-.pricing .pricing-cell.excluded::after {
-  content: "—";
+.pricing .pricing-cell.excluded {
   color: rgb(0 0 0 / 30%);
+}
+
+.pricing .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 @media (width <= 700px) {
