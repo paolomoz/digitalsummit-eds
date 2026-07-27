@@ -146,15 +146,28 @@ export default async function decorate(block) {
         const p = wrapped.closest('p');
         p.replaceWith(wrapped);
       }
-      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
+      const panel = navSection.querySelector('ul');
+      if (panel) {
+        navSection.classList.add('nav-drop');
+        // section kicker rendered by the mega panel's ::before
+        const trigger = navSection.querySelector(':scope > a');
+        panel.dataset.label = trigger ? trigger.textContent.trim() : '';
+      }
+      // hover intent: opening is immediate, closing waits — a cursor grazing
+      // a sibling or the bar edge can no longer collapse the panel mid-travel
+      let closeTimer;
       navSection.addEventListener('mouseenter', () => {
         if (isDesktop.matches && navSection.classList.contains('nav-drop')) {
+          clearTimeout(closeTimer);
           toggleAllNavSections(navSections);
           navSection.setAttribute('aria-expanded', 'true');
         }
       });
       navSection.addEventListener('mouseleave', () => {
-        if (isDesktop.matches) navSection.setAttribute('aria-expanded', 'false');
+        if (isDesktop.matches) {
+          clearTimeout(closeTimer);
+          closeTimer = setTimeout(() => navSection.setAttribute('aria-expanded', 'false'), 300);
+        }
       });
       navSection.addEventListener('click', () => {
         if (isDesktop.matches) {

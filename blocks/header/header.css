@@ -69,7 +69,8 @@ header nav .nav-sections > .default-content-wrapper > ul > li > ul > li a { colo
   header nav .nav-sections { display: block; white-space: nowrap; }
 
   header nav .nav-sections > .default-content-wrapper > ul { display: flex; align-items: center; gap: 4px; margin: 0; }
-  header nav .nav-sections > .default-content-wrapper > ul > li { position: relative; margin: 0; padding: 10px 12px; cursor: pointer; }
+  header nav .nav-sections > .default-content-wrapper > ul > li { margin: 0; padding: 10px 12px; cursor: pointer; }
+  header nav .nav-sections > .default-content-wrapper > ul > li[aria-expanded='true'] > a { color: var(--color-indigo); }
   header nav .nav-sections > .default-content-wrapper > ul > li:hover > a { color: var(--color-indigo); }
 
   header nav .nav-sections .nav-drop::after {
@@ -84,44 +85,60 @@ header nav .nav-sections > .default-content-wrapper > ul > li > ul > li a { colo
     vertical-align: middle;
   }
 
-  /* mega panel */
+  /* mega panel — full-width, flush under the header bar (zero hover gap;
+     the li is not positioned, so the panel anchors to .nav-wrapper) */
   header nav .nav-sections > .default-content-wrapper > ul > li > ul {
     display: none;
     position: absolute;
-    top: calc(100% + 10px);
-    left: 0;
-    min-width: 320px;
+    inset: 100% 0 auto;
     background: var(--color-bg);
     border-top: 3px solid transparent;
     border-image: var(--gradient-border) 1;
-    box-shadow: var(--nav-hairline);
-    padding: 24px 28px 20px;
+    box-shadow: 0 24px 48px -28px rgb(14 4 119 / 25%), var(--nav-hairline);
+    padding: 26px max(32px, calc((100% - 1200px) / 2)) 30px;
     white-space: normal;
-    background-image: url('/img/brand/confetti-right.png');
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size: auto 130%;
+    background-image: url('/img/brand/confetti-right.png'), url('/img/brand/confetti-left.png');
+    background-repeat: no-repeat, no-repeat;
+    background-position: right -20px center, left -30px bottom -40px;
+    background-size: auto 150%, auto 120%;
   }
 
-  /* invisible bridge across the 10px gap so the panel survives the cursor's travel */
+  header nav .nav-sections > .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 4px 40px;
+    animation: mega-in 0.18s ease;
+  }
+
+  /* section kicker — label set on the panel by header.js */
   header nav .nav-sections > .default-content-wrapper > ul > li > ul::before {
-    content: '';
-    position: absolute;
-    top: -14px;
-    left: 0;
-    right: 0;
-    height: 14px;
+    content: attr(data-label);
+    grid-column: 1 / -1;
+    font-family: var(--heading-font-family);
+    font-weight: 800;
+    font-size: var(--body-font-size-s);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-purple);
+    padding-bottom: 10px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--color-mist);
   }
 
-  header nav .nav-sections > .default-content-wrapper > ul > li[aria-expanded='true'] > ul { display: block; }
-  header nav .nav-sections > .default-content-wrapper > ul > li > ul > li { padding: 6px 0; font-weight: 700; font-size: var(--body-font-size-m); }
+  header nav .nav-sections > .default-content-wrapper > ul > li > ul > li { padding: 7px 0; font-weight: 700; font-size: var(--body-font-size-m); }
+  header nav .nav-sections > .default-content-wrapper > ul > li > ul > li a { display: inline-block; }
   header nav .nav-sections > .default-content-wrapper > ul > li > ul > li a:hover { color: var(--color-indigo); }
   header nav .nav-sections > .default-content-wrapper > ul > li > ul > li a::after { content: ''; display: block; height: 3px; width: 34px; margin-top: 3px; background: linear-gradient(to right, #189ac6, #ec008c); transform: scaleX(0); transform-origin: left; transition: transform 0.22s ease; }
   header nav .nav-sections > .default-content-wrapper > ul > li > ul > li a:hover::after { transform: scaleX(1); }
 
-  /* Locations panel: first drop gets the wide city grid */
-  header nav .nav-sections > .default-content-wrapper > ul > li:first-child > ul { min-width: 560px; display: none; }
-  header nav .nav-sections > .default-content-wrapper > ul > li:first-child[aria-expanded='true'] > ul { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 24px; }
+  @keyframes mega-in {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    header nav .nav-sections > .default-content-wrapper > ul > li[aria-expanded='true'] > ul { animation: none; }
+  }
 }
 
 /* tools (Register pill) */

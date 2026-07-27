@@ -14,3 +14,42 @@ footer .footer a:hover { text-decoration: underline; text-decoration-color: var(
 @media (width <= 800px) {
   footer .footer > div { grid-template-columns: 1fr; gap: 32px; }
 }
+
+/* social icon chips */
+footer .footer .footer-social { display: flex; gap: 12px; margin: 14px 0 18px; }
+
+footer .footer .footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgb(255 255 255 / 40%);
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+footer .footer .footer-social-link:hover {
+  text-decoration: none;
+  background: linear-gradient(45deg, #127ba3, #9d2ca2);
+  border-color: transparent;
+  transform: translateY(-2px);
+}
+
+footer .footer .footer-social-icon { display: block; width: 17px; height: 17px; }
+footer .footer .footer-social-icon svg { display: block; width: 100%; height: 100%; }
+
+footer .footer .footer-social-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  footer .footer .footer-social-link { transition: none; }
+
+  footer .footer .footer-social-link:hover { transform: none; }
+}
