@@ -139,6 +139,7 @@ main .section:empty { display: none; }
 /* default-content section styles (D1 closed set) */
 main .section.mist { background: var(--color-mist); }
 main .section.on-air { background: var(--color-indigo); color: #fff; }
+main .section.on-air a:any-link:not(.button) { color: var(--color-pink); }
 main .section.centered { text-align: center; }
 
 /* buttons - the signature dual-gradient pill system (captured, Mode A) */
